@@ -1,0 +1,37 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales y de logs
+*.log
+*.tmp
+*.swp
+
+# Credenciales o secretos
+*.env
+*.secret.yaml
+secrets/
+certs/
+
+# Archivos de configuración local
+.kube/
+.vscode/
+.idea/
+*.bak
+
+# Archivos de Jenkins si los generas dinámicamente
+jenkins_home/
+jenkins_output/
+
+# Archivos de Helm (si usas más adelante)
+charts/
+values*.yaml
+
+# Terraform (por si lo usas en el futuro)
+.terraform/
+terraform.tfstate
+terraform.tfstate.*
+
+# Docker
+**/node_modules/
+docker-compose.override.yml
