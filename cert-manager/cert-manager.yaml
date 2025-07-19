@@ -1,14 +1,29 @@
-# Cert-Manager install (v1.14.4)
 apiVersion: v1
 kind: Namespace
 metadata:
   name: cert-manager
 ---
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
-  name: dummy
-  namespace: cert-manager
+  name: letsencrypt-cloudflare
 spec:
-  ca:
-    secretName: dummy-ca
+  acme:
+    # Dirección de email usada para registro con Let's Encrypt
+    email: tu@email.com
+
+    # Endpoint de ACME (Let's Encrypt)
+    server: https://acme-v02.api.letsencrypt.org/directory
+
+    # Secreto donde cert-manager guardará la clave privada de la cuenta ACME
+    privateKeySecretRef:
+      name: letsencrypt-cloudflare-account-key
+
+    solvers:
+      - dns01:
+          cloudflare:
+            # Email de la cuenta de Cloudflare (puede omitirse si usas solo el token)
+            email: tu@email.com
+            apiTokenSecretRef:
+              name: cloudflare-api-token-secret
+              key: api-token

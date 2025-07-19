@@ -23,10 +23,6 @@ certs/
 jenkins_home/
 jenkins_output/
 
-# Archivos de Helm (si usas más adelante)
-charts/
-values*.yaml
-
 # Terraform (por si lo usas en el futuro)
 .terraform/
 terraform.tfstate
