@@ -3,6 +3,10 @@ set -e
 
 echo "🚀 Desplegando infraestructura base..."
 
+# 0. Ingress Controller
+echo "🌐 Instalando Ingress Controller (Nginx)"
+../ingress-nginx/install-ingress.sh
+
 # 1. Namespaces
 echo "📂 Aplicando namespaces"
 kubectl apply -f ../base/namespaces.yaml

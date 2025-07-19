@@ -7,7 +7,7 @@ echo "🌐 Actualizando IP dinámica en Cloudflare..."
 ZONE_ID="<your-zone-id>"
 RECORD_ID="<your-record-id>"
 API_TOKEN="<your-cloudflare-api-token>"
-RECORD_NAME="dezamacona.net"
+RECORD_NAME="tudominio.com"
 
 CURRENT_IP=$(curl -s https://api.ipify.org)
 echo "IP actual: $CURRENT_IP"

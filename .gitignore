@@ -31,3 +31,5 @@ terraform.tfstate.*
 # Docker
 **/node_modules/
 docker-compose.override.yml
+
+cloudflare-secret.yaml

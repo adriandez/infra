@@ -1,6 +1,6 @@
-# Infraestructura Personal - Codex Cloud
+# Infraestructura Personal
 
-Este repositorio define la infraestructura base para desplegar servicios personales en un clúster K3s autogestionado, con el objetivo de construir una nube personal estilo Google Cloud.
+Este repositorio define la infraestructura base para desplegar servicios personales en un clúster K3s autogestionado
 
 ## Objetivo
 
@@ -17,6 +17,9 @@ infra/
 │   ├── cert-manager.yaml
 │   ├── cloudflare-secret.yaml
 │   └── clusterissuer.yaml
+│
+├── ingress-nginx/          # Script de instalación de Nginx Ingress Controller vía Helm
+│   └── install-ingress.sh
 │
 ├── jenkins/                # Despliegue de Jenkins (CI/CD interno)
 │   ├── deployment-jenkins.yaml
@@ -42,6 +45,7 @@ infra/
 
 ## Scripts útiles
 
+```bash
 # Inicializar Cert-Manager y secretos
 ./scripts/init-cert-manager.sh
 
@@ -50,3 +54,22 @@ infra/
 
 # Desplegar toda la infraestructura
 ./scripts/deploy-all.sh
+```
+
+## Ejemplo de dominio
+
+Este repositorio usa `tudominio.com` como ejemplo. Sustitúyelo por tu dominio real configurado en Cloudflare.
+
+## Seguridad
+
+Este repositorio no contiene secretos reales. Los archivos sensibles como `.env` o `cloudflare-secret.yaml` deben ser creados localmente a partir de las plantillas `.example`.
+
+Nunca subas tokens o datos personales a GitHub si el repositorio es público.
+
+## Configuración de secretos
+
+Antes de desplegar, copia el archivo de plantilla y agrega tu token real:
+
+```bash
+cp cert-manager/cloudflare-secret.example.yaml cert-manager/cloudflare-secret.yaml
+```
